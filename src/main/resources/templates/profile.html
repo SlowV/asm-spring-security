@@ -39,11 +39,12 @@
         remove: "REMOVE"
     };
     const EMAIL = $('#email').text();
+    const BASE_URL = 'http:localhost:1998';
 
     $(document).ready(init());
 
     function init() {
-        var checkbox = $('input[type="checkbox"]');
+        let checkbox = $('input[type="checkbox"]');
         checkbox.change(function () {
             if ($(this).is(':checked')) {
                 postProfile(ACTION.add, $(this).val(), EMAIL);
@@ -54,12 +55,20 @@
     }
 
     function postProfile(action, id, email) {
+        let url = `${BASE_URL}/clazz/change?id=${id}&&action=${action}&&studentId=${email}`;
+        alert(url);
         $.ajax({
-            url: `localhost:1998/clazz/change?id=${id}&&action=${action}&&studentId=${email}`,
+            url: url,
             method: 'POST',
             contentType: 'application/json',
             success: function (data) {
-                console.log(data);
+                if (data === 200) {
+                    alert('ok');
+                } else if (data === 404) {
+                    alert('No found!');
+                }else{
+                    alert('invalid data!');
+                }
             },
             error: function (msg) {
                 console.log(msg);

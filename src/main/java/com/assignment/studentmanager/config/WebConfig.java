@@ -50,7 +50,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout()
-                .permitAll();
+                .permitAll().and().cors().disable();
 //
 //        http.authorizeRequests().anyRequest().permitAll();
     }

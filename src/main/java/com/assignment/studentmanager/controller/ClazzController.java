@@ -15,7 +15,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "clazz")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ClazzController {
     @Autowired
     ClazzService clazzService;
