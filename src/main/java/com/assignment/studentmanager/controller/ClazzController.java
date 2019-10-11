@@ -36,7 +36,6 @@ public class ClazzController {
         }
         return "Clazz list not empty!";
     }
-
     @PostMapping(value = "/change")
     public int changeStudentForClazz(
             @RequestParam(value = "action") String action,

@@ -55,8 +55,8 @@
     }
 
     function postProfile(action, id, email) {
-        let url = `${BASE_URL}/clazz/change?id=${id}&&action=${action}&&studentId=${email}`;
-        alert(url);
+        let url = `/clazz/change?id=${id}&&action=${action}&&studentId=${email}`;
+        console.log(url);
         $.ajax({
             url: url,
             method: 'POST',

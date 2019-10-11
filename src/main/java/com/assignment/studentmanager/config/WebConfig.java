@@ -39,7 +39,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/clazz/create/seeder").permitAll()
+                .antMatchers("/clazz/create/seeder", "/clazz/change").permitAll()
                 .antMatchers("/students/create").permitAll()
                 .anyRequest().authenticated()
                 .and()
