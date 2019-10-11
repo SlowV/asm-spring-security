@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-6 offset-md-3 border p-2">
+            <div class="form-group border-bottom">
+                RollNumber : <span th:text="${student.rollNumber}"></span>
+            </div>
+            <div class="form-group border-bottom">
+                Email : <span th:text="${student.email}"></span>
+            </div>
+            <div class="form-group border-bottom">
+                Full name : <span th:text="${student.fullName}"></span>
+            </div>
+            <div class="form-group border-bottom">
+                Class
+                <th:block th:each="clazz : ${clazzes}">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" th:checked="${student.clazzes.contains(clazz)}" th:value="${clazz.id}"> [[${clazz.name}]]
+                    </div>
+                </th:block>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
