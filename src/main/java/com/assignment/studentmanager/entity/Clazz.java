@@ -53,6 +53,11 @@ public class Clazz {
             this.students = new HashSet<>();
         }
         this.students.add(student);
-        this.students.iterator().next();
+    }
+
+    public void removeStudent(Student student) {
+        if (this.students != null){
+            this.students.remove(student);
+        }
     }
 }
