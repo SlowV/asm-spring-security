@@ -50,12 +50,12 @@ public class StudentController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/create")
-    public String store(Model model, Student student, BindingResult bindingResult, @RequestParam("clazzId") String clazzId) {
-//        if (bindingResult.hasErrors()) {
-//            model.addAttribute("student", student);
-//            model.addAttribute("clazzes", clazzService.clazzes());
-//            return "create";
-//        }
+    public String store(Model model,@Valid Student student, BindingResult bindingResult, @RequestParam("clazzId") String clazzId) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("student", student);
+            model.addAttribute("clazzes", clazzService.clazzes());
+            return "create";
+        }
         Clazz clazz = clazzService.findById(Integer.parseInt(clazzId));
         if (!studentService.checkExistEmail(student.getEmail())) {
             student.setPassword(passwordEncoder.encode(student.getPassword()));

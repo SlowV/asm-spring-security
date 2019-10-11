@@ -10,14 +10,14 @@ import java.util.Set;
 
 @Entity
 public class Student {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Size(max = 7, min = 7, message = "Full name length 7 characters.")
     private int rollNumber;
     @Id
-//    @Email(message = "Invalid email")
+    @Email(message = "Invalid email")
     private String email;
 
-//    @NotNull(message = "Full name can not be null or empty!")
-//    @Size(max = 30, message = "Full name length must be 1 - 30 characters.")
+    @NotNull(message = "Full name can not be null or empty!")
+    @Size(max = 30, message = "Full name length must be 1 - 30 characters.")
     private String fullName;
 
 //    @NotNull(message = "Password can not be null or empty!")
